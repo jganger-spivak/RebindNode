@@ -1,0 +1,5 @@
+sA hello
+sI WORLD
+cVar A
+pVar O
+clr 
