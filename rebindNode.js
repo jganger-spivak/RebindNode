@@ -103,7 +103,6 @@ function runProgram(codetext) {
 		rb.rbind.runCommand(codelines[i]);
 	}
 }
-debugger;
-var prog2 = "sA My\nsI";
+
 var code = fs.readFileSync(process.argv[2]);
 runProgram(code.toString());

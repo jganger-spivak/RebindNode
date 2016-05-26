@@ -1,5 +1,7 @@
 sA hello
-sI WORLD
+sI WoRLD
 cVar A
+sI !
+cVar O
 pVar O
 clr 
