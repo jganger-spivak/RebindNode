@@ -55,10 +55,14 @@ rb.rbind.bindCommand("sC", "setVarC");
 rb.rbind.bindCommand("sD", "setVarD");
 rb.rbind.bindCommand("sO", "setVarO");
 rb.rbind.bindCommand("sI", "setVarI");
+rb.rbind.bindCommand("arg1", "setVarArg1");
+rb.rbind.bindCommand("arg2", "setVarArg2");
 rb.rbind.bindCommand("pVar", "printVar");
 rb.rbind.bindCommand("cVar", "catVar");
+rb.rbind.bindCommand("rVar", "replaceVar");
 rb.rbind.bindCommand("clr", "clearVars");
 rb.rbind.bindCommand("pipe", "pipeVars");
+rb.rbind.bindCommand("fsr", "FileRead");
 var A = "";
 function setVarA(contents) {
   A = contents;
@@ -77,14 +81,25 @@ function setVarD(contents) {
 }
 var O = "";
 var I = "";
+var arg1
+var arg2
 function setVarI(contents) {
   I = contents;
+}
+function setVarArg1(contents) {
+  arg1 = contents;
+}
+function setVarArg2(contents) {
+  arg2 = contents;
 }
 function printVar(vname) {
   console.log(eval(vname));
 }
 function catVar(vname) {
   O = eval(vname + " + I");
+}
+function replaceVar(vname) {
+  O = eval(vname + ".replace(/" + arg1 + "/g, '" + arg2 + "')")
 }
 function clearVars() {
   A = "";
@@ -96,6 +111,12 @@ function clearVars() {
 }
 function pipeVars(vname) {
 	eval(vname + " = O");
+}
+function FileRead(filename) {
+	filename = filename.substr(1);
+	var data = fs.readFileSync(filename).toString();
+	O = data;
+	
 }
 function runProgram(codetext) {
 	var codelines = codetext.split("\n");
