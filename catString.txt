@@ -9,4 +9,8 @@ arg1 hello
 arg2 goodbye
 rVar O
 pVar O
+arg1 WoRLD
+arg2 world
+rVar O
+pVar O
 clr 

@@ -81,8 +81,8 @@ function setVarD(contents) {
 }
 var O = "";
 var I = "";
-var arg1
-var arg2
+var arg1 = "";
+var arg2 = "";
 function setVarI(contents) {
   I = contents;
 }
@@ -108,6 +108,8 @@ function clearVars() {
   D = "";
   I = "";
   O = "";
+  arg1 = "";
+  arg2 = "";
 }
 function pipeVars(vname) {
 	eval(vname + " = O");
